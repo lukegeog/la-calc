@@ -6,7 +6,7 @@ Single-file Progressive Web App (PWA). No data leaves the device. Add to your ho
 
 ## What it shows
 
-Input patient weight → it calculates max safe dose (mg) and max volume (ml) for each LA. Rows where the 250 µg adrenaline cap becomes binding are highlighted in amber.
+Input patient weight → it calculates max dose (mg) and volume (ml) for each LA from pure mg/kg, plus total adrenaline (µg) per row for awareness.
 
 ## Doses used
 
@@ -17,7 +17,7 @@ Input patient weight → it calculates max safe dose (mg) and max volume (ml) fo
 | Bupivacaine plain    | 2     |
 | Bupivacaine + adr    | 3     |
 
-**Absolute mg ceilings are not applied** — LA dose is pure mg/kg. The only hard limit is the **250 µg adrenaline cap** (1:200,000 = 5 µg/ml → 50 ml of any adrenaline-containing solution).
+**No caps applied.** The calculator outputs pure mg/kg dosing — no absolute mg ceiling and no enforced adrenaline ceiling. The conventional 250 µg adrenaline limit is *displayed* per row (1:200,000 = 5 µg/ml) but not auto-clamped; that judgement is yours to make.
 
 **Note on bupivacaine + adrenaline.** The 3 mg/kg used follows local trust protocol. BNF is more conservative at 2 mg/kg, citing cardiotoxicity (not absorption) as rate-limiting. If you move trusts and the local protocol differs, edit the `bupi025` and `bupi05` `adrMgKg` values at the top of the script block in `index.html`.
 

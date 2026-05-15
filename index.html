@@ -123,7 +123,7 @@
 
   <div id="drugs"></div>
 
-  <p class="footer-note">Volumes assume <strong>adrenaline 1:200,000</strong> (5 µg/ml). Total adrenaline cap is <strong>250 µg</strong> — this becomes the binding limit at ≥ 50 ml of solution and is flagged in amber when it bites.</p>
+  <p class="footer-note">Volumes assume <strong>adrenaline 1:200,000</strong> (5 µg/ml). Adrenaline µg per row is shown for awareness; conventional advice is to keep total ≤ 250 µg but no cap is enforced by this calculator.</p>
 
   <details class="notes">
     <summary>Clinical reminders</summary>
@@ -134,8 +134,8 @@
         <li>Lidocaine with adrenaline: <strong>7 mg/kg</strong>.</li>
         <li>Bupivacaine plain: <strong>2 mg/kg</strong>.</li>
         <li>Bupivacaine with adrenaline: <strong>3 mg/kg</strong> (local trust protocol; BNF is more conservative at 2 mg/kg).</li>
-        <li>Adrenaline 1:200,000 = 5 µg/ml. Recommended max total <strong>250 µg</strong>.</li>
-        <li><strong>No absolute mg ceiling applied.</strong> Calculator uses pure mg/kg for the LA dose; only the 250 µg adrenaline cap remains as a hard limit.</li>
+        <li>Adrenaline 1:200,000 = 5 µg/ml. Conventional max total <strong>250 µg</strong> — shown for awareness on each row but <strong>not enforced</strong> by the calculator.</li>
+        <li><strong>No caps applied.</strong> The calculator outputs pure mg/kg dosing. No absolute mg ceiling and no adrenaline ceiling — keep an eye on the µg total yourself.</li>
       </ul>
       <h3>Adjustments</h3>
       <ul>
@@ -165,8 +165,8 @@ const DRUGS = [
 ];
 
 const ADR_CONC_UG_PER_ML = 5;          // 1:200,000
-const ADR_MAX_UG = 250;
-const ADR_VOL_CAP_ML = ADR_MAX_UG / ADR_CONC_UG_PER_ML;  // 50 ml
+const ADR_MAX_UG = Infinity;            // No adrenaline cap applied
+const ADR_VOL_CAP_ML = Infinity;        // ...so the volume isn't clamped either
 
 const $  = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
