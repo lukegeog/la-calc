@@ -6,20 +6,20 @@ Single-file Progressive Web App (PWA). No data leaves the device. Add to your ho
 
 ## What it shows
 
-Input patient weight → it calculates max safe dose (mg) and max volume (ml) for each LA, and indicates which limit is binding (mg/kg, absolute cap, or — for adrenaline-containing solutions — the adrenaline 250 µg cap). Rows where the adrenaline cap bites are highlighted in amber.
+Input patient weight → it calculates max safe dose (mg) and max volume (ml) for each LA. Rows where the 250 µg adrenaline cap becomes binding are highlighted in amber.
 
 ## Doses used
 
-| Drug                 | mg/kg        | Absolute cap |
-|----------------------|--------------|--------------|
-| Lidocaine plain      | 3            | 200 mg       |
-| Lidocaine + adr      | 7            | 500 mg       |
-| Bupivacaine plain    | 2            | 175 mg       |
-| Bupivacaine + adr    | 3            | 225 mg       |
+| Drug                 | mg/kg |
+|----------------------|-------|
+| Lidocaine plain      | 3     |
+| Lidocaine + adr      | 7     |
+| Bupivacaine plain    | 2     |
+| Bupivacaine + adr    | 3     |
 
-Adrenaline 1:200,000 = 5 µg/ml. Total adrenaline cap = 250 µg → volume cap of 50 ml of solution.
+**Absolute mg ceilings are not applied** — LA dose is pure mg/kg. The only hard limit is the **250 µg adrenaline cap** (1:200,000 = 5 µg/ml → 50 ml of any adrenaline-containing solution).
 
-**Note on bupivacaine + adrenaline.** The values used (3 mg/kg, 225 mg cap) follow local trust protocol. BNF is more conservative at 2 mg/kg, citing cardiotoxicity (not absorption) as rate-limiting. If you move trusts and the local protocol differs, edit the `bupi025` and `bupi05` `adrMgKg` / `adrCap` values at the top of the script block in `index.html`.
+**Note on bupivacaine + adrenaline.** The 3 mg/kg used follows local trust protocol. BNF is more conservative at 2 mg/kg, citing cardiotoxicity (not absorption) as rate-limiting. If you move trusts and the local protocol differs, edit the `bupi025` and `bupi05` `adrMgKg` values at the top of the script block in `index.html`.
 
 ## Disclaimer
 

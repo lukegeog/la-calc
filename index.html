@@ -130,11 +130,12 @@
     <div class="body">
       <h3>Doses used</h3>
       <ul>
-        <li>Lidocaine plain: <strong>3 mg/kg</strong>, absolute cap <strong>200 mg</strong>.</li>
-        <li>Lidocaine with adrenaline: <strong>7 mg/kg</strong>, absolute cap <strong>500 mg</strong>.</li>
-        <li>Bupivacaine plain: <strong>2 mg/kg</strong>, absolute cap <strong>175 mg</strong>.</li>
-        <li>Bupivacaine with adrenaline: <strong>3 mg/kg</strong>, absolute cap <strong>225 mg</strong> (local trust protocol). BNF is more conservative at 2 mg/kg, citing cardiotoxicity as rate-limiting rather than absorption.</li>
+        <li>Lidocaine plain: <strong>3 mg/kg</strong>.</li>
+        <li>Lidocaine with adrenaline: <strong>7 mg/kg</strong>.</li>
+        <li>Bupivacaine plain: <strong>2 mg/kg</strong>.</li>
+        <li>Bupivacaine with adrenaline: <strong>3 mg/kg</strong> (local trust protocol; BNF is more conservative at 2 mg/kg).</li>
         <li>Adrenaline 1:200,000 = 5 µg/ml. Recommended max total <strong>250 µg</strong>.</li>
+        <li><strong>No absolute mg ceiling applied.</strong> Calculator uses pure mg/kg for the LA dose; only the 250 µg adrenaline cap remains as a hard limit.</li>
       </ul>
       <h3>Adjustments</h3>
       <ul>
@@ -157,10 +158,10 @@
 'use strict';
 
 const DRUGS = [
-  { id:'lido1',  name:'Lidocaine 1%',     conc:10,  plainMgKg:3, plainCap:200, adrMgKg:7, adrCap:500 },
-  { id:'lido2',  name:'Lidocaine 2%',     conc:20,  plainMgKg:3, plainCap:200, adrMgKg:7, adrCap:500 },
-  { id:'bupi025',name:'Bupivacaine 0.25%',conc:2.5, plainMgKg:2, plainCap:175, adrMgKg:3, adrCap:225 },
-  { id:'bupi05', name:'Bupivacaine 0.5%', conc:5,   plainMgKg:2, plainCap:175, adrMgKg:3, adrCap:225 },
+  { id:'lido1',  name:'Lidocaine 1%',     conc:10,  plainMgKg:3, plainCap:Infinity, adrMgKg:7, adrCap:Infinity },
+  { id:'lido2',  name:'Lidocaine 2%',     conc:20,  plainMgKg:3, plainCap:Infinity, adrMgKg:7, adrCap:Infinity },
+  { id:'bupi025',name:'Bupivacaine 0.25%',conc:2.5, plainMgKg:2, plainCap:Infinity, adrMgKg:3, adrCap:Infinity },
+  { id:'bupi05', name:'Bupivacaine 0.5%', conc:5,   plainMgKg:2, plainCap:Infinity, adrMgKg:3, adrCap:Infinity },
 ];
 
 const ADR_CONC_UG_PER_ML = 5;          // 1:200,000
